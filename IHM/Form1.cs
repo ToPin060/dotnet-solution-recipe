@@ -13,7 +13,7 @@ namespace IHM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = new ObjectRecipesService().GetAll();
+            dataGridView1.DataSource = RecipesServiceFactory.Instance?.GetAll();
         }
     }
 }
