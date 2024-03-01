@@ -12,7 +12,7 @@ namespace Services
     {
         public override List<Recipe> GetAll()
         {
-            XDocument xdoc = XDocument.Load("datas\\recipes.xml");
+            XDocument xdoc = XDocument.Load("Data\\recipes.xml");
             var recipes = xdoc.Descendants("recipe")
                 .Select(recipeElement => new Recipe
                 {
