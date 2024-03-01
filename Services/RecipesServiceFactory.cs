@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Services.Core;
 using System;
 
 namespace Services
@@ -9,6 +10,15 @@ namespace Services
 
         static RecipesServiceFactory()
         {
+            var className = "ClassName".GetValue();
+            var assemblyName = "AssemblyName".GetValue();
+
+            Instance = Activator.CreateInstance(assemblyName, className).Unwrap() as RecipesService;
+        }
+
+        /*
+        static RecipesServiceFactory()
+        {
             IConfigurationRoot _configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
 
             var className = _configuration["ClassName"];
@@ -17,5 +27,6 @@ namespace Services
             if (className != null && assemblyName != null)
                 Instance = Activator.CreateInstance(assemblyName, className).Unwrap() as RecipesService;
         }
-    }
+        */
+        }
 }
