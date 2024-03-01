@@ -14,6 +14,7 @@ namespace Services
                 new Recipe() {Id = Guid.NewGuid(), Title="Object Recipe 02" },
                 new Recipe() {Id = Guid.NewGuid(), Title="Object Recipe 03" },
                 new Recipe() {Id = Guid.NewGuid(), Title="Object Recipe 04" },
+                new Recipe() {Id = Guid.NewGuid(), Title="Object Recipe 05" }
             };
         }
     }
