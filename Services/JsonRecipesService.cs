@@ -12,5 +12,10 @@ namespace Services
             var json = File.ReadAllText("Data\\recipes.json");
             return (Newtonsoft.Json.JsonConvert.DeserializeObject<List<Recipe>>(json));
         }
+
+        public override List<Recipe> GetByTitle(string title)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

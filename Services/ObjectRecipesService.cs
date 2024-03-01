@@ -17,5 +17,10 @@ namespace Services
                 new Recipe() {Id = Guid.NewGuid(), Title="Object Recipe 05" }
             };
         }
+
+        public override List<Recipe> GetByTitle(string title)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

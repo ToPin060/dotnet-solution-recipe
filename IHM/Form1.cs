@@ -13,7 +13,10 @@ namespace IHM
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = RecipesServiceFactory.Instance?.GetAll();
+            if (String.IsNullOrEmpty(textBox1.Text))
+                dataGridView1.DataSource = RecipesServiceFactory.Instance?.GetAll();
+            else
+                dataGridView1.DataSource = RecipesServiceFactory.Instance?.GetByTitle(textBox1.Text);
         }
     }
 }

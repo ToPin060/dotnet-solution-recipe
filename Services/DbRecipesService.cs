@@ -18,7 +18,12 @@ namespace Services
              */
         }
 
-        protected List<Recipe> GetAllFromDb(String commandText, System.Data.CommandType commandType)
+        public override List<Recipe> GetByTitle(string title)
+        {
+            return GetAllFromDb($"SelectRecipe", System.Data.CommandType.StoredProcedure, title);
+        }
+
+        protected List<Recipe> GetAllFromDb(String commandText, System.Data.CommandType commandType, String? title = null)
         {
             using (var cn = new SqlConnection("RecipesConnectionString".GetConnectionString()))
             {
@@ -29,6 +34,11 @@ namespace Services
                 var cmd = cn.CreateCommand();
                 cmd.CommandText = commandText;
                 cmd.CommandType = commandType;
+
+                if (!String.IsNullOrEmpty(title))
+                {
+                    cmd.Parameters.Add(new SqlParameter("@title", title));
+                }
 
                 var reader = cmd.ExecuteReader();
 

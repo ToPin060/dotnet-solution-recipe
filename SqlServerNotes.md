@@ -107,3 +107,29 @@ GO
 ```
 
 > You can generate a template directly: DATABASE > Programmability > Stored Procedures > Right click > New... > Stored Procedure...
+
+### Modify the previous stored procedure
+
+```sql
+GO
+/****** Object:  StoredProcedure [dbo].[SelectRecipe]    Script Date: 01/03/2024 17:57:02 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<ToPin060>
+-- Create date: <XX/XX/XXXX>/
+-- Description:	<N/A>
+-- =============================================
+ALTER PROCEDURE [dbo].[SelectRecipe]
+	@Title nvarchar(100) = NULL
+AS
+BEGIN
+SET NOCOUNT ON;
+	SELECT *
+	FROM Recipe
+	WHERE (@Title IS NULL OR title LIKE '%' + @Title + '%')
+	ORDER BY title;
+END
+```
