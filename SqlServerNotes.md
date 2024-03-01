@@ -73,3 +73,37 @@ INSERT INTO Recipe VALUES
 ```sql 
 SELECT * FROM Recipe;
 ```
+
+### Generate a stored procedure
+
+```sql
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<ToPin060>
+-- Create date: <XX/XX/XXXX>/
+-- Description:	<N/A>
+-- =============================================
+CREATE PROCEDURE SelectRecipe
+AS
+BEGIN
+SET NOCOUNT ON;
+	SELECT * FROM Recipe ORDER BY title
+END
+GO
+```
+
+> You can generate a template directly: DATABASE > Programmability > Stored Procedures > Right click > New... > Stored Procedure...
